@@ -4,9 +4,8 @@
   >
     <div class="flex items-center flex-shrink-0 px-4 space-y-5">
       <img
-        class="w-auto h-8"
+        class="w-auto h-16"
         src="../assets/images/snvgroup-logo.jpeg"
-        alt="Workflow"
       />
     </div>
     <div class="flex flex-col flex-grow mt-5">
