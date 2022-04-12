@@ -9,10 +9,10 @@ const app = createApp(App);
 
 app.use(
   createAuth0({
-    domain: "dev-f-yt7kxk.us.auth0.com",
-    client_id: "m12y0UstZjuFBCNRi7aFo80IgX2f1E1U",
+    domain: "dev-xai59hoo.us.auth0.com",
+    client_id: "Sndpd1I9wnTIwJnGhbIDGRTaWXSfcvFT",
     redirect_uri: window.location.origin,
-    // audience: "undefined",
+    // audience: "http://localhost:8080/user",
   })
 );
 
