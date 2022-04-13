@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import { createAuth0, authGuard } from '@auth0/auth0-vue';
 
 const routes = [
   {
@@ -16,17 +17,22 @@ const routes = [
     component: () => import("../views/Calendar.vue"),
   },
   {
-    path: "/contact",
+    path: "/contacts",
     component: () => import("../views/Contacts.vue"),
   },
   {
     path: "/notification",
-    component: () => import("../views/Notification.vue"),
+    component: () => import("..//views/Notification.vue"),
+  },
+  { 
+    path: "/category", 
+    component: () => import("../views/Category.vue"),
   },
   {
-    path: "/user",
-    component: () => import("../views/User.vue")
-  }
+    path: "/okr",
+    component: () => import("../views/Okr.vue"),
+    beforeEnter: authGuard
+  },
 ];
 
 const router = createRouter({

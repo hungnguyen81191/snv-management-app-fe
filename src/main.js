@@ -12,7 +12,7 @@ app.use(
     domain: "dev-xai59hoo.us.auth0.com",
     client_id: "Sndpd1I9wnTIwJnGhbIDGRTaWXSfcvFT",
     redirect_uri: window.location.origin,
-    // audience: "http://localhost:8080/user",
+    audience: "con_4IfGYc6RZeo3aj0g",
   })
 );
 
