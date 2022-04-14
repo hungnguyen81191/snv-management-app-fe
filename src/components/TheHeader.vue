@@ -1,22 +1,20 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
- <div class="flex justify-between flex-1 ">
-   <div class="flex items-center justify-center flex-shrink-0 px-4">
-      <router-link to="/"
-        ><img class="w-6/12 h-50" src="../assets/images/snv.jpeg" 
-      /></router-link>
+ <div class="flex flex-1 mt-0 max-h-20 bg-cyan-50">
+   <div class="flex items-center justify-center flex-shrink-0 px-10 py-2">
+      <router-link to="/"><img class="w-24 h-20" src="../assets/images/snv.jpeg" /></router-link>
     </div>
      <div class="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-          <a v-if="!isAuthenticated" class="px-4 py-2 text-base font-medium text-gray-700 whitespace-nowrap bg-gray-100 rounded-md hover:text-gray-900 hover:bg-gray-300" @click="login"> Login </a>
-          <Menu as="div" v-if="isAuthenticated" class="ml-4 relative flex-shrink-0">
+          <a v-if="!isAuthenticated" class="px-4 py-2 text-base font-medium text-gray-700 bg-gray-100 rounded-md whitespace-nowrap hover:text-gray-900 hover:bg-gray-300" @click="login"> Login </a>
+          <Menu as="div" v-if="isAuthenticated" class="relative flex-shrink-0 ml-4">
             <div>
-              <MenuButton class="bg-sky-500 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-sky-500 focus:ring-white">
+              <MenuButton class="flex text-sm rounded-full bg-sky-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-sky-500 focus:ring-white">
                 <span class="sr-only">Open user menu</span>
-                <img class="h-8 w-8 rounded-full" :src="`https://i1.wp.com/cdn.auth0.com/avatars/hu.png?ssl=1`" alt="" />
+                <img class="w-8 h-8 rounded-full" :src="`https://i1.wp.com/cdn.auth0.com/avatars/hu.png?ssl=1`" alt="" />
               </MenuButton>
             </div>
-            <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-              <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <transition enter-active-class="transition duration-100 ease-out" enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
+              <MenuItems class="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem  v-slot="{ active }">
                   <a  :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your profile</a>
                 </MenuItem>
@@ -68,7 +66,7 @@ export default {
       useAuth0,
       doSomethingWithToken: async () => {
           const token = await getAccessTokenSilently();
-          // console.log(token);
+          console.log(token);
           // console.log(user.value.picture);
           return token;
         }

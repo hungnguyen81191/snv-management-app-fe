@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar bg-gray-100 rounded-lg max-w-sm h-full py-2 sm:h-[80vh] p-3 block">
+  <div class="float-left w-48 h-screen col-span-1 py-10 bg-local bg-gray-100">
         <nav class="px-2">
           <router-link to="/"
             ><a
