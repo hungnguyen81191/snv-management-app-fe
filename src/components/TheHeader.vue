@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
- <div class="flex flex-1 mt-0 max-h-20 bg-cyan-50">
+ <div class="flex flex-1 mt-0 max-h-20 ">
    <div class="flex items-center justify-center flex-shrink-0 px-10 py-2">
       <router-link to="/"><img class="w-24 h-20" src="../assets/images/snv.jpeg" /></router-link>
     </div>
@@ -27,9 +27,7 @@
               </MenuItems>
             </transition>
           </Menu>
-          <!-- <button v-if="isAuthenticated" class="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-gray-700 whitespace-nowrap hover:text-gray-900 hover:bg-gray-300" @click="logout"> Logout </button> -->
         </div>
-        <!-- <button @click="doSomethingWithToken()">Get Token</button> -->
   </div>
 </template>
 
@@ -51,7 +49,7 @@ export default {
   },
 
   setup() {
-    const { loginWithRedirect, user, isAuthenticated, logout, getAccessTokenSilently } = useAuth0();
+    const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
     
 
     return {
@@ -61,17 +59,14 @@ export default {
       logout: () => {
         logout({ returnTo: window.location.origin });
       },
-      user,
       isAuthenticated,
-      useAuth0,
-      doSomethingWithToken: async () => {
-          const token = await getAccessTokenSilently();
-          console.log(token);
-          // console.log(user.value.picture);
-          return token;
-        }
-    };
-    
+    };   
   },
+  async mounted() {
+    const{getAccessTokenSilently} = useAuth0();
+    let token = await getAccessTokenSilently();
+    // console.log(token);
+    localStorage.setItem("token", token);
+  }
 };
 </script>

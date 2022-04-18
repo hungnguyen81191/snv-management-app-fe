@@ -5,15 +5,15 @@ const resource = "okr";
 
 export default {
     gets(token) {
-        return Api(`${resource}`, token).get();
+        return Api(`${resource}`, token).get("",token);
     },
     create(data, token) {
-        return Api(`${resource}`, data, token).post();
+        return Api(`${resource}`, data, token).post("",data, token);
     },
-    patch(Id, data, token) {
-        return Api(`${resource}/${Id}`, data, token).patch();
+    patch(id, data, token) {
+        return Api(`${resource}/`, data, token).patch(`${id}`, data, token);
     },
-    delete(Id, token) {
-        return Api(`${resource}/${Id}`, token).delete();
+    delete(id, token) {
+        return Api(`${resource}/${id}`, token).delete();
     },
 };
