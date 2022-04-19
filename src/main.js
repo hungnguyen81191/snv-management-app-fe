@@ -3,7 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./assets/tailwind.css";
-import { createAuth0 } from '@auth0/auth0-vue';
+import { createAuth0 } from "@auth0/auth0-vue";
+import VueCookies from "vue3-cookies";
 
 const app = createApp(App);
 
