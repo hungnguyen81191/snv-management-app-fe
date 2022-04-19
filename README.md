@@ -17,6 +17,11 @@ sudo docker build . -t vue-app
 sudo docker run -d -p 8080:80 vue-app
 ```
 
+### Get list images
+```
+docker ps
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
